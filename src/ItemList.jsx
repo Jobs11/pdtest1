@@ -16,7 +16,6 @@ const ItemListBlock = styled.div`
   }
 `;
 
-var response;
 const ItemList = ({ category }) => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -26,7 +25,7 @@ const ItemList = ({ category }) => {
       setLoading(true);
       try {
         const query = category === "food" ? "food" : `${category}`;
-
+        var response;
         switch (query) {
           case "food":
             response = await axios.get(
