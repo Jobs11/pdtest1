@@ -16,6 +16,7 @@ const ItemListBlock = styled.div`
   }
 `;
 
+var response;
 const ItemList = ({ category }) => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,7 @@ const ItemList = ({ category }) => {
 
         switch (query) {
           case "food":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/FoodService/getFoodKr?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D&numOfRows=100&pageNo=1&resultType=json"
             );
             console.log(response.data.getFoodKr.item);
@@ -36,7 +37,7 @@ const ItemList = ({ category }) => {
             break;
 
           case "walking":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/WalkingService/getWalkingKr?serviceKey=ALRX9GpugtvHxcIO%2FiPg1vXIQKi0E6Kk1ns4imt8BLTgdvSlH%2FAKv%2BA1GcGUQgzuzqM3Uv1ZGgpG5erOTDcYRQ%3D%3D&pageNo=1&numOfRows=100&resultType=json"
             );
 
